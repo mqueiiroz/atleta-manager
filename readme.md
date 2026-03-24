@@ -14,7 +14,7 @@ Objetivo é construir um sistema para gerenciar atletas e times, incluindo valid
 - [ ] **Dia 4:** Validação de Dados (Tratamento de Erros).
 - [ ] **Dia 5:** Simulador de Partida (Lógica e Aleatoriedade).
 - [ ] **Dia 6:** Sistema de Logs (Histórico em .txt).
-- [ ] **Dia 7:** Refatoração Final e Documentação.
+- [ ] **Dia 7:** Refatoração Final.
 
 ## 🛠️ Tecnologias Utilizadas
 * **Python 3.14.0**
