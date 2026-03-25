@@ -8,7 +8,7 @@ Objetivo é construir um sistema para gerenciar atletas e times, incluindo valid
 
 ### 📅 Cronograma de Desenvolvimento
 - [x] **Dia 0:** Configuração de Ambiente, Git e Arquitetura de Pastas.
-- [ ] **Dia 1:** Criação do Modelo de Atleta (Classes e Atributos).
+- [x] **Dia 1:** Criação do Modelo de Atleta (Classes e Atributos).
 - [ ] **Dia 2:** Gestão de Elenco (Agregação de Objetos).
 - [ ] **Dia 3:** Persistência em JSON (Leitura e Escrita).
 - [ ] **Dia 4:** Validação de Dados (Tratamento de Erros).
