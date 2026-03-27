@@ -10,7 +10,7 @@ Objetivo é construir um sistema para gerenciar atletas e times, incluindo valid
 - [x] **Dia 0:** Configuração de Ambiente, Git e Arquitetura de Pastas.
 - [x] **Dia 1:** Criação do Modelo de Atleta (Classes e Atributos).
 - [x] **Dia 2:** Gestão de Elenco (Agregação de Objetos).
-- [ ] **Dia 3:** Persistência em JSON (Leitura e Escrita).
+- [x] **Dia 3:** Persistência em JSON (Leitura e Escrita).
 - [ ] **Dia 4:** Validação de Dados (Tratamento de Erros).
 - [ ] **Dia 5:** Simulador de Partida (Lógica e Aleatoriedade).
 - [ ] **Dia 6:** Sistema de Logs (Histórico em .txt).
