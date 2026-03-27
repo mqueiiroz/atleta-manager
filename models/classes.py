@@ -1,7 +1,10 @@
+import json
+
 class Atleta:
-    def __init__ (self, nome,idade,posicao):
+    def __init__ (self, id,nome,idade,posicao):
         self.nome = nome
         self.idade = idade
+        self.id = id
         self.lista_de_posicao = ['Defensor','Meio-Campista','Atacante']
         if posicao in self.lista_de_posicao:
             self.posicao = posicao
@@ -10,7 +13,7 @@ class Atleta:
 
 
     def __str__ (self):
-        return f'Nome: {self.nome} | Idade: {self.idade} | Posição: {self.posicao}'
+        return f'Id:{self.id} | Nome: {self.nome} | Idade: {self.idade} | Posição: {self.posicao}'
 
 class Time:
     def __init__(self, nome):
@@ -38,18 +41,31 @@ class Time:
             idade = atleta.idade
             posicao = atleta.posicao
         print(f'{nome} | {idade} | {posicao}')
+
+    def salvar_dados(self):
+        self.dados = {
+            atleta.id : atleta.__dict__ for atleta in self.lista_de_atletas    
+            }
+        print(self.dados)
+        with open('data/dados_dos_atletas.json','w',encoding='utf--8') as f:
+            json.dump(self.dados,f)
         
+    def carregar_dados(self):
+        with open('data/dados_dos_atletas.json','r',encoding='utf--8') as f:
+            dados_do_json = json.load(f)
+            for k,v in dados_do_json.items():
+                novo_atleta = Atleta(
+                    v['id'],
+                    v['nome'],
+                    v['idade'],
+                    v['posicao'],
+                )
+                self.lista_de_atletas.append(novo_atleta)
 
 time1 = Time('Ceará')
-atleta1 = Atleta('Matheus',20,'Defensor')
+atleta1 = Atleta('01','Matheus',20,'Defensor')
 time1.adicionar_atleta(atleta1)
-atleta2 = Atleta('Mauricio',30,'Defensor')
-
-
+atleta2 = Atleta('02' ,'Mauricio',30,'Defensor')
 time1.adicionar_atleta(atleta2)
-time1.remover_atleta('Mauricio')
-time1.remover_atleta('Joao')
-print(time1)
-
-time1.listar_elenco('Ceará')
-
+time1.carregar_dados()
+time1.salvar_dados()
