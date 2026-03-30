@@ -16,13 +16,34 @@ class Atleta:
         return f'Id:{self.id} | Nome: {self.nome} | Idade: {self.idade} | Posição: {self.posicao}'
 
 class Time:
+    times_criados = []
     def __init__(self, nome):
         self.nome = nome
         self.lista_de_atletas = []
+        nome_verificado = nome.strip().capitalize()
+        if self.existe_time(nome_verificado):
+            raise ValueError ('Ja existe esse time')
+        self.nome = nome_verificado
+        Time.times_criados.append(self)
 
+    @classmethod
+    def existe_time(cls,nome_verificado):
+        for time in cls.times_criados:
+            if time.nome == nome_verificado:
+                return True
+        return False
+    
+    @staticmethod
+    def verificar_idade(idade):
+            if idade > 16:
+                return True
+            return False        
+    
     def adicionar_atleta(self,atleta):
-        self.lista_de_atletas.append(atleta)
-
+        if self.verificar_idade(atleta.idade):
+            self.lista_de_atletas.append(atleta)
+        else:
+            raise ValueError('Idade invalida')
     def __str__(self):
         nomes = [atleta.nome for atleta in self.lista_de_atletas]
         return f'Time: {self.nome} :{nomes}'
@@ -66,6 +87,8 @@ time1 = Time('Ceará')
 atleta1 = Atleta('01','Matheus',20,'Defensor')
 time1.adicionar_atleta(atleta1)
 atleta2 = Atleta('02' ,'Mauricio',30,'Defensor')
+time2 = Time('Ceará')
 time1.adicionar_atleta(atleta2)
 time1.carregar_dados()
 time1.salvar_dados()
+
