@@ -1,5 +1,5 @@
 import json
-from models.atleta import Atleta
+from .atleta import Atleta
 
 class Time:
     times_criados = []
