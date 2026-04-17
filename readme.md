@@ -12,9 +12,9 @@ Objetivo é construir um sistema para gerenciar atletas e times, incluindo valid
 - [x] **Dia 2:** Gestão de Elenco (Agregação de Objetos).
 - [x] **Dia 3:** Persistência em JSON (Leitura e Escrita).
 - [x] **Dia 4:** Validação de Dados (Tratamento de Erros).
-- [ ] **Dia 5:** Simulador de Partida (Lógica e Aleatoriedade).
-- [ ] **Dia 6:** Sistema de Logs (Histórico em .txt).
-- [ ] **Dia 7:** Refatoração Final.
+- [x] **Dia 5:** Simulador de Partida (Lógica e Aleatoriedade).
+- [x] **Dia 6:** Sistema de Logs (Histórico em .txt).
+- [x] **Dia 7:** Refatoração Final.
 
 ## 🛠️ Tecnologias Utilizadas
 * **Python 3.14.0**
