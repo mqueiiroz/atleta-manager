@@ -1,1 +1,1 @@
-[{"nome": "Matheus", "idade": 20, "id": "01", "lista_de_posicao": ["Defensor", "Meio-Campista", "Atacante"], "posicao": "Defensor"}, {"nome": "Mauricio", "idade": 30, "id": "02", "lista_de_posicao": ["Defensor", "Meio-Campista", "Atacante"], "posicao": "Defensor"}]
+{"02": {"nome": "Mauricio", "idade": 30, "id": "02", "posicao": "Defensor"}}

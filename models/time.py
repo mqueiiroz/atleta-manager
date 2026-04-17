@@ -1,5 +1,7 @@
 import json
 from .atleta import Atleta
+from logger import registrar_evento
+
 
 class Time:
     times_criados = []
@@ -37,34 +39,40 @@ class Time:
     def remover_atleta(self,nome_procurado):
         for atleta in self.lista_de_atletas:
             if atleta.nome == nome_procurado:
-                self.lista_de_atletas.remove(atleta)
+                self.lista_de_atletas.remove(atleta )
+                registrar_evento(f"Atleta {nome_procurado} removido do time {self.nome}")
+                print(f'{Atleta} removido com sucesso.')
                 break
         else:
             print(f'Não foi encontrado Ninguem com esse nome :{nome_procurado}')
     
-    def listar_elenco(self,time):
+    def listar_elenco(self):
         for atleta in self.lista_de_atletas:
             nome = atleta.nome
             idade = atleta.idade
             posicao = atleta.posicao
-        print(f'{nome} | {idade} | {posicao}')
+            print(f'{nome} | {idade} | {posicao}')
 
     def salvar_dados(self):
         self.dados = {
             atleta.id : atleta.__dict__ for atleta in self.lista_de_atletas    
             }
         print(self.dados)
-        with open('data/dados_dos_atletas.json','w',encoding='utf--8') as f:
+        with open('data/dados_dos_atletas.json','w',encoding='utf-8') as f:
             json.dump(self.dados,f)
         
     def carregar_dados(self):
-        with open('data/dados_dos_atletas.json','r',encoding='utf--8') as f:
-            dados_do_json = json.load(f)
-            for k,v in dados_do_json.items():
-                novo_atleta = Atleta(
+        try:
+            with open('data/dados_dos_atletas.json','r',encoding='utf-8') as f:
+                dados_do_json = json.load(f)
+                self.lista_de_atletas.clear()
+                for v in dados_do_json.values():
+                    self.lista_de_atletas.append = Atleta(
                     v['id'],
                     v['nome'],
                     v['idade'],
                     v['posicao'],
                 )
-                self.lista_de_atletas.append(novo_atleta)
+        except FileNotFoundError:
+                print('Arquivo de dados não encontrado')
+            

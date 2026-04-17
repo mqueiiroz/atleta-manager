@@ -1,5 +1,6 @@
-from models import Atleta,Time
+from models import Time
 import random
+from logger import registrar_evento
 
 class Partida:
     def __init__(self, time_casa,time_fora):
@@ -20,6 +21,8 @@ class Partida:
         gols_fora = random.randint(0,3) + (1 if forca_fora > forca_casa else 0)
 
         print(f'{self.time_casa.nome} {gols_casa} x {gols_fora} {self.time_fora.nome}')
+        msg = f"Partida realizada: {self.time_casa.nome} {gols_casa} x {gols_fora} {self.time_fora.nome}"
+        registrar_evento(msg)
 
         if gols_casa > gols_fora:
              print(f'Vencedor : {self.time_casa.nome}')
